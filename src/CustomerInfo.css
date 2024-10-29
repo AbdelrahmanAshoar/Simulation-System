@@ -1,0 +1,34 @@
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form>div{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  color: #3d3f6f;
+  font-weight: 500;
+}
+form input, form select{
+  width: 120px;
+  height: 30px;
+  font-size: 16px;
+  margin: 10px;
+  padding: 5px;
+  border: 2px solid #3d3f6f;
+  border-radius: 5px;
+}
+form button{
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  background: #622be2;
+  margin: 10px;
+  color: white;
+}
