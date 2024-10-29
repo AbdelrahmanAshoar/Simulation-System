@@ -1,20 +1,9 @@
-export default function ServicesTable({ services, onDeleteService }) {
-  let servicesList = services.map((service) => {
-    return (
-      <tr key={service.code}>
-        <td>{service.name}</td>
-        <td>{service.code}</td>
-        <td>{service.time}</td>
-        <td>
-          <button className="btn" style={{ background: "crimson" }}
-            onClick={()=>{onDeleteService(service.code)}}
-          >
-            Del
-          </button>
-        </td>
-      </tr>
-    );
-  });
+// ServicesTable.js
+import React, { useContext } from 'react';
+import ServicesContext from './ServicesContext';
+
+export default function ServicesTable() {
+  const { services, handleDeleteService } = useContext(ServicesContext);
 
   return (
     <div className="services-output">
@@ -22,15 +11,30 @@ export default function ServicesTable({ services, onDeleteService }) {
       <div className="container-table">
         <table aria-hidden="true">
           <thead>
-          <tr>
-            <th>Code</th>
-            <th>Title</th>
-            <th>Time</th>
-            <th>Delete</th>
-          </tr>
+            <tr>
+              <th>Code</th>
+              <th>Title</th>
+              <th>Duration</th>
+              <th>Delete</th>
+            </tr>
           </thead>
           <tbody>
-            {servicesList}
+            {services.map((service) => (
+              <tr key={service.code}>
+                <td>{service.code}</td>
+                <td>{service.name}</td>
+                <td>{service.time}</td>
+                <td>
+                  <button
+                    className="btn"
+                    style={{ background: "crimson" }}
+                    onClick={() => handleDeleteService(service.code)}
+                  >
+                    Del
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

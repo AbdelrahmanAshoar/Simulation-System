@@ -1,15 +1,16 @@
 /* start rules */
 .btn{
-  background: #383462;
+  background-color: #302e38;
   color: white;
   padding: 8px 10px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  &:hover {
-    background-color: #252247;
+  &:enabled {
+    background-color: #403893;
   }
+
 }
 /* end rules */
  
@@ -46,18 +47,24 @@ input {
   margin: 10px;
 }
 
+.warning{
+  color: crimson;
+  text-shadow: 0 0 2px red;
+  margin-bottom: 5px;
+}
+
 /* services output */
 .services-output {
   border-left: 1px solid #fff;
-  padding-left: 20px;
+  padding: 10px 20px;
   border-radius: 3px;
   & h2 {
     text-align: center;
   }
 }
 .container-table{
-  margin-top: 20px;
-  max-height: 260px;
+  margin-top: 10px;
+  max-height: 250px;
   overflow: auto;
   border: 1px solid #494952;
 }
