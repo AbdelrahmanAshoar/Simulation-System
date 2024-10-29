@@ -1,18 +1,39 @@
 import "./services.css";
-import ServicesInput from "./ServicesInput";
-import ServicesOutput from "./ServicesOutput";
-import { createContext, useState } from "react";
+import { useState } from "react";
+import AddServices from "./AddServices";
+import ServicesTable from "./ServicesTable";
 
 
-export const serviceData = createContext();
 export default function Services() {
-  const [data, setData] = useState({ name: '', code: '', time: '' });
+  const [services, setServices] = useState(initialServices);
+
+  function handleAddService(name, code, time) {
+    setServices([
+      ...services,
+      {
+        name: name,
+        code: code,
+        time: time,
+      },
+    ]);
+  }
+
+  function handleDeleteService(serviceCode) {
+    setServices(services.filter((s) => s.code !== serviceCode));
+  }
+
   return (
     <div className="container-services">
-      <serviceData.Provider value={{ data, setData }}>
-        <ServicesInput />
-        <ServicesOutput />
-      </serviceData.Provider>
+        <AddServices onAddService={handleAddService}/>
+        <ServicesTable 
+          services={services}
+          onDeleteService={handleDeleteService}
+        />
     </div>
   );
 }
+
+const initialServices = [
+  { name: 'HW', code: '1', time: '3' },
+  { name: 'SW', code: '2', time: '5' },
+];

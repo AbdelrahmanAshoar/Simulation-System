@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { serviceData } from "./Services";
-export default function ServicesInput() {
-  const [setData] = useContext(serviceData);
+import { useState } from 'react';
+
+export default function AddServices({onAddService}) {
+  const [services, setServices] = useState({name:"", code:"", time:""})
   return (
     <div className="services-input">
       <h2>Services Creation</h2>
@@ -11,9 +11,8 @@ export default function ServicesInput() {
         <input
           id="age"
           type="text"
-          onChange={(ele) => {
-            setData((parData)=>({ ...parData, name: ele.target.value }));
-          }}
+          value={services.name}
+          onChange={(ele) => setServices({...services, name:ele.target.value})}
         />
       </div>
       <div className="row">
@@ -22,9 +21,8 @@ export default function ServicesInput() {
           id="codeService"
           type="text"
           name="codeService"
-          onChange={(ele) => {
-            setData((parData)=>({ ...parData, code: ele.target.value }));
-          }}
+          value={services.code}
+          onChange={(ele) => setServices({...services, code:ele.target.value})}
         />
       </div>
       <div className="row">
@@ -33,12 +31,15 @@ export default function ServicesInput() {
           type="number"
           name="timeService"
           id="timeService"
-          onChange={(ele) => {
-            setData((parData)=>({ ...parData, arrivalTime: ele.target.value }));
-          }}
+          value={services.time}
+          onChange={(ele) => setServices({...services, time:ele.target.value})}
         />
       </div>
-      <button type="submit" className="btn" style={{ margin: "20px" }}>
+      <button className="btn" style={{ margin: "20px" }}
+        onClick={() => {
+          onAddService(services.name, services.code, services.time);
+          setServices({name:"", code:"", time:""})
+        }}>
         Add To The Table
       </button>
     </div>
