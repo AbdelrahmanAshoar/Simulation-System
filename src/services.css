@@ -1,5 +1,6 @@
 /* start rules */
 .btn{
+  font-weight: bold;
   background-color: #302e38;
   color: white;
   padding: 8px 10px;
@@ -22,7 +23,7 @@
 }
 
 /* services-input */
- .services-input {
+.services-input {
   text-align: center;
   div {
     text-align: left;
@@ -35,6 +36,10 @@
   padding: 10px;
   & .row:last-of-type input{
     width: 100px;
+  }
+  & button{
+    margin: 20px;
+    &:disabled{ color: #d3c8ca;}
   }
 }
 label {

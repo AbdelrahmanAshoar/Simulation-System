@@ -1,34 +1,43 @@
-form{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container-customers {
+  margin-top: 80px;
 }
 
-form>div{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  margin: 10px;
-  padding: 10px;
-  color: #3d3f6f;
-  font-weight: 500;
+.container-customers table {
+  th,
+  td {
+    border: 1px solid #ccc;
+  }
+  tfoot {
+    td {
+      border: none;
+    }
+    button {
+      margin-block: 10px;
+    }
+    td:nth-of-type(3) button{
+      background-color: #37b423;
+    }
+    td:nth-of-type(5) button{
+      background-color: crimson;
+    }
+  }
 }
-form input, form select{
-  width: 120px;
-  height: 30px;
-  font-size: 16px;
-  margin: 10px;
-  padding: 5px;
-  border: 2px solid #3d3f6f;
-  border-radius: 5px;
+
+.container-customers input {
+  width: 100%;
+  border-color: #ccc;
+  margin: 0px;
+  &:focus {
+    outline-color: #757575;
+  }
 }
-form button{
-  text-transform: uppercase;
-  font-size: 18px;
-  padding: 8px 20px;
-  border: none;
-  border-radius: 5px;
-  background: #622be2;
-  margin: 10px;
-  color: white;
+
+/* Style for the second column */
+td:nth-child(6),
+td:nth-child(7),
+td:nth-child(8),
+td:nth-child(9),
+td:nth-child(10) {
+  color: red;
+  font-weight: 600;
 }

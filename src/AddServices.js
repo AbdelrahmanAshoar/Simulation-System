@@ -1,16 +1,14 @@
-// AddServices.js
 import React, { useState, useContext } from "react";
 import ServicesContext from "./ServicesContext";
+
+
 export default function AddServices() {
-  let [toolTip, setToolTip] = useState("");
-  const [service, setService] = useState({ name: "", code: "", time: "" });
   const { handleAddService, serviceIsExisted } = useContext(ServicesContext);
-  const [serviceExist, setServiceExist] = useState({
-    nameEx: false,
-    codeEx: false,
-  });
-  let isDisableBtn =
-    service.name === "" || service.code === "" || service.time === "";
+  const [toolTip, setToolTip] = useState("");
+  const [service, setService] = useState({ name: "", code: "", time: "" });
+  const [serviceExist, setServiceExist] = useState({nameEx: false,codeEx: false,});
+  let   isDisableBtn = service.name === "" || service.code === "" || service.time === "";
+
   return (
     <div className="services-input">
       <h2>Services Creation</h2>
@@ -18,7 +16,6 @@ export default function AddServices() {
       <div className="row">
         <label htmlFor="nameService">Name:</label>
         <input
-          id="nameService"
           type="text"
           value={service.name}
           onChange={(e) => {
@@ -29,16 +26,17 @@ export default function AddServices() {
             setService({ ...service, name: e.target.value });
           }}
         />
+
         {serviceExist.nameEx ? (
           <div className="warning">Services name is already present</div>
         ) : (
           <></>
         )}
+
       </div>
       <div className="row">
         <label htmlFor="codeService">Code: </label>
         <input
-          id="codeService"
           type="text"
           value={service.code}
           onChange={(e) => {
@@ -49,11 +47,13 @@ export default function AddServices() {
             setService({ ...service, code: e.target.value });
           }}
         />
+
         {serviceExist.codeEx ? (
           <div className="warning">Services code is already present</div>
         ) : (
           <></>
         )}
+        
       </div>
       <div className="row">
         <label htmlFor="timeService">Duration:</label>
@@ -63,11 +63,13 @@ export default function AddServices() {
           onChange={(e) => setService({ ...service, time: e.target.value })}
         />
       </div>
+
+
       <button
         className="btn"
-        style={{ margin: "20px" }}
         disabled={isDisableBtn}
         title={toolTip}
+        
         onClick={() => {
           handleAddService(service.name, service.code, service.time);
           setService({ name: "", code: "", time: "" });
@@ -78,6 +80,8 @@ export default function AddServices() {
       >
         Add To The Table
       </button>
+
+
     </div>
   );
 }

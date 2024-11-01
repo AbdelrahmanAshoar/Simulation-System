@@ -20,6 +20,12 @@ export const ServicesProvider = ({ children }) => {
     setServices(services.filter((s) => s.code !== serviceCode));
   };
 
+  const getServicesByCode = (servicesCode) =>{
+    return services.filter(service=>{
+      return +service.code === servicesCode ;
+    });
+  }
+
   return (
     <ServicesContext.Provider
       value={{
@@ -27,6 +33,7 @@ export const ServicesProvider = ({ children }) => {
         handleAddService,
         serviceIsExisted,
         handleDeleteService,
+        getServicesByCode,
       }}
     >
       {children}
