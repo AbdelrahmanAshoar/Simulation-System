@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Simulation-System/static/css/main.d6a1ffde.css",
-    "main.js": "/Simulation-System/static/js/main.f665b2c6.js",
+    "main.js": "/Simulation-System/static/js/main.248f5dc6.js",
     "static/js/453.6d8569a1.chunk.js": "/Simulation-System/static/js/453.6d8569a1.chunk.js",
     "index.html": "/Simulation-System/index.html",
     "main.d6a1ffde.css.map": "/Simulation-System/static/css/main.d6a1ffde.css.map",
-    "main.f665b2c6.js.map": "/Simulation-System/static/js/main.f665b2c6.js.map",
+    "main.248f5dc6.js.map": "/Simulation-System/static/js/main.248f5dc6.js.map",
     "453.6d8569a1.chunk.js.map": "/Simulation-System/static/js/453.6d8569a1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d6a1ffde.css",
-    "static/js/main.f665b2c6.js"
+    "static/js/main.248f5dc6.js"
   ]
 }
